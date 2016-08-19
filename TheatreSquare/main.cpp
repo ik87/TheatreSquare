@@ -5,7 +5,7 @@
 using std::string;
 
 string multy(string a, string b);
-//string sum(string a, string b, int i);
+string sum(string a);
 
 
 int main(unsigned  int argc, char* argv[])
@@ -29,19 +29,22 @@ string multy(string a, string b) {
 	
 	for (int i = a.length(); i ; i--)
 	{
+		if(a.length() - i){
+			buffer += '+';
+				for(int n = 0; n < a.length() - i;n++)
+					buffer += std::to_string(0);
+					
+			}
 		for (int j = b.length(); j; j--, t++)
 		{
-			if(a.length()){
-				for(int n = 0; n < i;n++)
-					buffer += std::to_string(0);
-			}
+			
 mem =  ((a[i - 1] - '0') * (b[j - 1] - '0')) + mem / 10;
 			if ((j - 1) == 0) {
 				
 				buffer += std::to_string(mem % 10);
 			if(mem > 10)
 				buffer += std::to_string(mem / 10);
-				buffer += '+';
+				
 			}
 			else {		
 				buffer += std::to_string(mem % 10);			
@@ -55,10 +58,20 @@ mem =  ((a[i - 1] - '0') * (b[j - 1] - '0')) + mem / 10;
 	
 	return buffer;
 }
-/*
-string sum(string a, string b, int i) {
-	string equal;
-	equal +
+
+string sum(string a) {
+	//571+0521+0005
+	int x,y;
+	string s;
+	for(int i = 0; i < a.length(); i++){
+		x = a[i] - '0';
+		for(int j = i; j; j++){
+			if(a[j] == '+'){
+				
+			}
+		}
+		}
+		else
+	}
 	
 }
-*/
