@@ -1,6 +1,3 @@
-﻿  main.cpp
-c:\cpp\theatresquare\theatresquare\main.cpp(37): warning C4018: '<': signed/unsigned mismatch
-c:\cpp\theatresquare\theatresquare\main.cpp(74): warning C4018: '<': signed/unsigned mismatch
-c:\cpp\theatresquare\theatresquare\main.cpp(122): warning C4244: '=': conversion from 'double' to 'unsigned int', possible loss of data
-c:\cpp\theatresquare\theatresquare\main.cpp(127): warning C4244: '=': conversion from 'double' to 'unsigned int', possible loss of data
+﻿  main4.cpp
+c:\cpp\theatresquare\theatresquare\main4.cpp(10): warning C4293: '<<': shift count negative or too big, undefined behavior
   TheatreSquare.vcxproj -> C:\CPP\TheatreSquare\Debug\TheatreSquare.exe
