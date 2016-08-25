@@ -1,33 +1,42 @@
+//E. Generate a String, v2
 #include <iostream>
 using namespace std;
 
 int main()
 {
-	long long n, x, y, i, j, min, sum, current;
-	n = 8, x = 1, y = 1;
-	i = 0;
-	j = 0;
-	min = 1 << ((sizeof(n) * 8)) ;
+	unsigned long long n, x, y, i, j, min, sum, current;
+	n = 65, x = 15; y = 10;// 1,2,4,8,7 //1,2,3,6,7
+	i = 1;	// aa..				// 1,2,3,4,5,6,7
+	j = 1;	//aa..*2				//123487
+	min = n *  x;			//13//3+2
 	sum = 1;
 	current = 1;
 	while (true) 
 	{
-		sum = ++i; // a..
 
 		while (true)
 		{
-			j++; // a.. * 2
-			sum = sum << sum;
+			i++;
+			sum = (i++ << j);
+			if(sum > n){
+				sum--;
+				i++;
+			}
+			cout << "sum: " << sum << endl;
+			cout << "i : " << i << endl;
+			cout << "j : " << j << endl;
+			cout << "min (c): " << min << endl;
+			cin.get();
 			if (sum == n) {
 				current = (i * x) + (j * y);
 				if (min > current)
 					min = current;
+					break;
 			}
-
-			
 			
 		}
-		
+		i = 1;
+		j++;
 	}
 
 
