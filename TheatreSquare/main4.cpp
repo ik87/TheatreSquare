@@ -1,52 +1,66 @@
-//E. Generate a String, v3
+//E. Generate a String, v4
 #include <iostream>
 using namespace std;
+#define DEBUG() \
+	std::cout << "n: " << n << std::endl; \
+	std::cout << "sum: " << sum << std::endl; \
+	std::cout << "i : " << i << std::endl; \
+	std::cout << "j : " << j << std::endl; \
+	std::cout << "min (c): " << min << std::endl; \
+	std::cout << ((i * x) + (j * y)); \
+	std::printf(" = (i*x) + (j*y)\n" ); \
+	std::cin.get();
 
 int main()
 {
 	unsigned long long n, x, y, i, p, j, min, sum, current;
-	n = 8, x = 15; y = 10;// 1,2,4,8,7 //1,2,3,6,7
+	n = 9; x = 1; y = 3;// xx=2,y=4,y=8,x
 	i = 1;	// aa..				// 1,2,3,4,5,6,7
-	j = 1;
-	p = 1;	//aa..*2				//123487
+	j = 1;	//aa..*2				//123487
 	min = n *  x;			//13//3+2
 	sum = 1;
 	current = 1;
 	while (true) 
 	{
 
-		while (p++)
+		while (true)
 		{
 			i++;
 			sum = (i<< j);
+			if(i == 1 && sum > n) {
+				cout << min << endl;
+				return 0;
+			}
 			if(n < sum && n > (p = (i-1 << j))){
-				if((sum - n)  >  (n - p))//-,+
+			cout << "n < sum && n > p" << endl;
+			cout << n << " < " << sum << " && ";
+			cout << n << " > " << p << endl;
+			if(((sum - n) + i )  <  ((n - p) + (i - 1)))//-,+
 				{
-					sum = --i << j;
-					 i += (n - p);
-					 sum += (n - p);
-				}
-					else 
-				{
-					sum -= (sum - n); 
 					i += (sum - n);
 				}
+					else
+				{
+					cout << "*";
+					 i += (n - p);
+					 i--;
+				}
+				
+				sum = n;
 				
 			}
-			cout << "sum: " << sum << endl;
-			cout << "i : " << i << endl;
-			cout << "j : " << j << endl;
-			cout << "min (c): " << min << endl;
-			cin.get();
+		DEBUG();
 			if (sum == n) {
-				current = (p * x) + (j * y);
+				current = (i * x) + (j * y);
 				if (min > current)
 					min = current;
+					cout << "#"<< endl;
+		DEBUG();
 					break;
 			}
 			
 		}
-		i = 1;
+		i = 0;
 		j++;
 	}
 
