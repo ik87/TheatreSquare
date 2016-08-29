@@ -1,3 +1,5 @@
-﻿  main4.cpp
-c:\cpp\theatresquare\theatresquare\main4.cpp(10): warning C4293: '<<': shift count negative or too big, undefined behavior
+﻿  main5.cpp
+c:\cpp\theatresquare\theatresquare\main5.cpp(9): warning C4101: 'size': unreferenced local variable
+c:\cpp\theatresquare\theatresquare\main5.cpp(68): warning C4018: '<': signed/unsigned mismatch
+c:\cpp\theatresquare\theatresquare\main5.cpp(86): warning C4715: 'countN': not all control paths return a value
   TheatreSquare.vcxproj -> C:\CPP\TheatreSquare\Debug\TheatreSquare.exe
