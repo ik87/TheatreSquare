@@ -1,6 +1,6 @@
-//E. Generate a String, v1.2
+//E. Generate a String, v1.3
 #include <iostream>
-#include <string>
+//#include <string>
 using namespace std;
 
 class Branch {
@@ -11,14 +11,14 @@ private:
 
 
 public:
-	string patch;
+//	string patch;
 	Branch(unsigned long n, unsigned long x, unsigned long y) {
 		this->n = n;
 		this->i = 0;
 		this->j = 0;
 		this->x = x;
 		this->y = y;
-		this->patch = std::to_string(n);
+	//	this->patch = std::to_string(n);
 	}
 	Branch(Branch *br)
 	{
@@ -27,7 +27,7 @@ public:
 		this->j = br->j;
 		this->x = br->x;
 		this->y = br->y;
-		this->patch.append(to_string(br->n));
+
 
 	}
 	~Branch() {}
@@ -37,8 +37,9 @@ public:
 	Branch plusN() { n++; i++;  return this; }
 	Branch minusN() { n--; i++; return this; }
 	Branch halfN() { n = n >> 1; j++;   return this; }
-	void addPatch() { patch += to_string(int(n)); }
+//	void addPatch() { patch += to_string(int(n)); }
 	unsigned long getTotalSec() { return ((i*x) + (j*y)); }
+	bool yLanger() {return (y > x);}
 
 };
 
@@ -49,9 +50,10 @@ void factory(Branch br, unsigned long &min) {
 
 	if (br.getN() == 1) {
 		br.minusN();
+		//br.minusN();
 		if (min > br.getTotalSec())
 			min = br.getTotalSec();
-		cout <<br.patch <<endl;
+		
 		return;
 	}
 	if (br.getN() & 1) {
@@ -63,7 +65,10 @@ void factory(Branch br, unsigned long &min) {
 
 	}
 	else {
-		factory(br.halfN(), min);
+		if(br.getN() == 2 && br.yLanger())
+			factory(br.minusN(), min);
+		else
+			factory(br.halfN(), min);
 	}
 }
 
